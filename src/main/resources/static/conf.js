@@ -16,7 +16,8 @@ function leave() {
 /*
  * Prepare websocket for signaling server endpoint.
  */
-var signalingWebsocket = new WebSocket("ws://localhost:8080/signal");
+var userid = Math.round(Math.random() * 1000)
+var signalingWebsocket = new WebSocket("ws://localhost:8080/signal/" + userid);
 
 signalingWebsocket.onmessage = function(msg) {
     console.log("Got message", msg.data);
